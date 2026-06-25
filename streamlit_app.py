@@ -15,7 +15,8 @@ name_on_order = st.text_input("Name on Smoothie")
 
 cnx = st.connection("snowflake")
 session = cnx.session();
-my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col("fruit_name"))
+my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col("fruit_name"), col("search_on"))
+                                                                      
 #st.dataframe(data=my_dataframe, use_container_width=True)
 pd_df = my_dataframe.to_pandas()
 
